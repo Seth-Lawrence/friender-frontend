@@ -19,9 +19,9 @@ function PhotoForm() {
     debugger;
     evt.preventDefault();
     const formData = new FormData();
-    formData.filepath = evt.target.fileUpload.files[0]
+    // formData.filepath = fileData
     // formData.object_name = fileData.name
-    // formData.append('filepath', fileData);
+    formData.append('filepath', fileData);
     // formData.append('object_name', fileData.name);
 
     console.log('FORMDATA',formData)
@@ -29,7 +29,10 @@ function PhotoForm() {
     if(formData) {
       await fetch(`${BASE_API_URL}/api/photos`, {method: "POST",
         body: formData,
-        headers: { 'content-type': 'multipart/form-data' }}
+        mode: 'no-cors',
+        // headers: { 'content-type': 'multipart/form-data' }
+      }
+
       );
     }
   }
@@ -43,7 +46,8 @@ function PhotoForm() {
 
   return(
     <div>
-      <form onSubmit={handleSubmit} encType="multipart/form-data" action="POST">
+      {/* <img src='https://friender-r35.s3.us-east-2.amazonaws.com/squirrel.jpg+(5).jpg'></img> */}
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="fileUpload">
           Upload file:
           <input id="fileUpload" type="file" onChange={handleChange} />
@@ -52,7 +56,6 @@ function PhotoForm() {
         <button type="submit">Submit</button>
       </form>
     </div>
-
   )
 
 }
