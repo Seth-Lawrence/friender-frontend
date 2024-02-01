@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import PhotoForm from './Photoform'
+import PhotoForm from './PhotoForm'
 
 function App() {
   return (
