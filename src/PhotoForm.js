@@ -19,8 +19,8 @@ function PhotoForm() {
     debugger;
     evt.preventDefault();
     const formData = new FormData();
-    formData.filepath = fileData
-    formData.object_name = fileData.name
+    formData.filepath = evt.target.fileUpload.files[0]
+    // formData.object_name = fileData.name
     // formData.append('filepath', fileData);
     // formData.append('object_name', fileData.name);
 
@@ -43,7 +43,7 @@ function PhotoForm() {
 
   return(
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data" action="POST">
         <label htmlFor="fileUpload">
           Upload file:
           <input id="fileUpload" type="file" onChange={handleChange} />
