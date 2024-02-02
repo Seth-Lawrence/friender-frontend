@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './SignUpForm.css'
 
 /**Displays a form for signing up to the site
  *

@@ -17,7 +17,7 @@ function LoginPage() {
   const navigate = useNavigate("/");
 
   async function loginSubmit(formData){
-    const resp = await fetch(`${BASE_API_URL}/api/signup`, {
+    const resp = await fetch(`${BASE_API_URL}/api/login`, {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: {

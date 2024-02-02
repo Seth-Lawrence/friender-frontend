@@ -1,4 +1,5 @@
 import UserPhoto from "./UserPhoto";
+import './UserCard.css'
 
 /**Renders components containing info about a user
  *
