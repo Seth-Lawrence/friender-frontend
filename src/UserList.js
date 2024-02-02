@@ -1,4 +1,5 @@
 import UserCard from "./UserCard";
+import './UserList.css'
 
 /**Renders a list of UserCards
  *

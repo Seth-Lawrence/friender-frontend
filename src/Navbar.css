@@ -1,0 +1,22 @@
+.Navigation {
+  text-align: left;
+  margin-left: 0%;
+  height: 25vh;
+  display: block;
+  background-color: rgb(71, 218, 255);
+  font-weight: 700;
+}
+
+
+.Navigation-Header {
+  text-align: center;;
+font-family: 'Honk', system-ui;
+font-size: 50px;
+}
+
+.Navigation-Subheader {
+  text-align: center;;
+font-family: 'Honk', system-ui;
+font-size: 30px;
+
+}
