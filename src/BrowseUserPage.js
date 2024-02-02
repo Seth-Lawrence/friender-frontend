@@ -1,8 +1,9 @@
-import UserList from "./UserList"
+import UserList from "./UserList";
+import { useState, useEffect } from 'react';
 
 /** Renders a list of users to view (and vote on)
  *
- * props: users
+ * props: none
  *
  * state: none
  *
@@ -11,12 +12,25 @@ import UserList from "./UserList"
  */
 
 function BrowseUserPage() {
+  [users, setUsers] = useState();
+
+
+  useEffect(function getUsersOnMount() {
+    async function getAllUsers() {
+      const resp = await fetch(`${BASE_API}/api/users`);
+      const result = await resp.json();
+      const usersList = result.users;
+      setUsers(usersList);
+    }
+    getAllUsers();
+  }, []);
+
 
   return (
     <div className="BrowseUserPage">
-      <UserList />
+      <UserList users={users}/>
     </div>
-  )
+  );
 }
 
 
