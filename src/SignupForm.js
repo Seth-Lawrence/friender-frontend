@@ -2,23 +2,22 @@ import { useState } from "react";
 
 /**Displays a form for signing up to the site
  *
- * props: handleSubmit
+ * props: submitAction
  *
  * state: formData
  *
  * SignupPage -> SignupForm => PhotoForm
  */
 
-function SignupForm() {
+function SignupForm({ submitAction }) {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     first_name: "",
-    last_name: ""
+    last_name: "",
+    zip_code: "",
+    friend_radius: 0
   });
-
-  //TODO: Do we want to have this form on submit render the photo form, passing
-  // the data as props, and then register user from photo form?
 
   function handleChange(evt){
     const {name, value} = evt.target;
@@ -27,6 +26,7 @@ function SignupForm() {
 
   function handleSubmit(evt){
     evt.preventDefault();
+    submitAction(formData);
   }
 
   return (
@@ -67,7 +67,7 @@ function SignupForm() {
         value={formData.last_name}
         onChange={handleChange}
       />
-      <label htmlFor="zip_code">Zip Code </label>
+      <label htmlFor="zip_code">Zip Code: </label>
       <input
         id="zip_code"
         name="zip_code"
@@ -76,7 +76,7 @@ function SignupForm() {
         value={formData.zip_code}
         onChange={handleChange}
       />
-      <label htmlFor="friend_radius">Last Name: </label>
+      <label htmlFor="friend_radius">Friend Radius: </label>
       <input
         id="friend_radius"
         name="friend_radius"

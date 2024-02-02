@@ -27,42 +27,48 @@ function SignupPage() {
 
   }
 
-  async function handlePhotoSubmit(formData) {
-    const resp = await fetch(`${BASE_API_URL}/api/photos`, {
-      method: "POST",
-      body: formData,
-      mode: 'no-cors',
-      // headers: { 'content-type': 'multipart/form-data' }
-    });
+async function handlePhotoSubmit(formData) {
+  const resp = await fetch(`${BASE_API_URL}/api/photos`, {
+    method: "POST",
+    body: formData,
+    // mode: 'no-cors',
+    // headers: { 'content-type': 'multipart/form-data' }
+  });
 
-    const result = await resp.json();
+  console.log("RESPONSE,", resp);
 
-    const url = result.url;
+  const result = await resp.json();
 
-    const userResp = await fetch(`${BASE_API_URL}/api/signup`, {
-      method: 'POST',
-      body: {...user, profile_image: url},
-      headers: {
-        'content-type': 'application/json'
+  const url = result.URL;
+
+  console.log("BEFORE SIGNUP REQUEST, url=", url);
+
+  const userResp = await fetch(`${BASE_API_URL}/api/signup`, {
+    method: 'POST',
+    body: JSON.stringify({...user,
+      friend_radius: Number(user.friend_radius),
+      profile_image: url}),
+    headers: {
+      'content-type': 'application/json'
       }
-    })
-    navigate('/')
+  });
+  navigate('/');
 
-  }
-
-
+}
 
 
 
-  return (
 
-    <div>
-      {user?.username
-        ? <PhotoForm />
-        : <SignupForm />
-      }
-    </div>
-  );
+
+return (
+
+  <div>
+    {user?.username
+      ? <PhotoForm submitAction={handlePhotoSubmit}/>
+      : <SignupForm submitAction={handleSignupSubmit} />
+    }
+  </div>
+);
 }
 
 
