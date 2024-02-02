@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import PhotoForm from './PhotoForm'
+import { BrowserRouter } from "react-router-dom"
+import RoutesList from './RoutesList';
 
 function App() {
   return (
     <div className="App">
-      <PhotoForm />
-
+      <BrowserRouter>
+        <RoutesList />
+      </BrowserRouter>
     </div>
   );
 }
