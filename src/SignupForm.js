@@ -6,10 +6,10 @@ import { useState } from "react";
  *
  * state: formData
  *
- * SignupPage -> SignupForm
+ * SignupPage -> SignupForm => PhotoForm
  */
 
-function SignupForm({ handleSubmit }) {
+function SignupForm() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -23,6 +23,13 @@ function SignupForm({ handleSubmit }) {
   function handleChange(evt){
     const {name, value} = evt.target;
     setFormData({...formData, [name]: value})
+  }
+
+  function handleSubmit(evt){
+    evt.preventDefault();
+
+
+
   }
 
   return (
@@ -63,6 +70,25 @@ function SignupForm({ handleSubmit }) {
         value={formData.last_name}
         onChange={handleChange}
       />
+      <label htmlFor="zip_code">Zip Code </label>
+      <input
+        id="zip_code"
+        name="zip_code"
+        type="text"
+        required
+        value={formData.zip_code}
+        onChange={handleChange}
+      />
+      <label htmlFor="friend_radius">Last Name: </label>
+      <input
+        id="friend_radius"
+        name="friend_radius"
+        type="number"
+        required
+        value={formData.friend_radius}
+        onChange={handleChange}
+      />
+
       <button>Submit</button>
     </form>
   )

@@ -4,6 +4,7 @@ import Homepage from './Homepage';
 import BrowseUserPage from './BrowseUserPage';
 import UserProfilePage from './UserProfilePage';
 import SignupPage from './SignupPage';
+import PhotoForm from './PhotoForm'
 
 
 /**
@@ -26,6 +27,7 @@ function RoutesList() {
       <Route path='/users' element={<BrowseUserPage />}></Route>
       <Route path='/users/:id' element={<UserProfilePage />}></Route>
       <Route path='/signup' element={<SignupPage />}></Route>
+      <Route path='/users/1/photo/add' element={<PhotoForm />}></Route>
       <Route path='*' element={<Navigate to="/" />}></Route>
     </Routes>
   )
