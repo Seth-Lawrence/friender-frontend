@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './PhotoForm.css';
 
 const BASE_API_URL = "http://localhost:5000";
 
@@ -38,17 +39,14 @@ function PhotoForm({ submitAction }) {
 
 
   return(
-    <div>
-      {/* <img src='https://friender-r35.s3.us-east-2.amazonaws.com/squirrel.jpg+(5).jpg'></img> */}
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form className='PhotoForm' onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="fileUpload">
           Upload file:
           <input id="fileUpload" type="file" onChange={handleChange} />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <button className='PhotoForm-Btn' type="submit">Submit</button>
       </form>
-    </div>
   )
 
 }
