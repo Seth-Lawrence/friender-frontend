@@ -12,7 +12,7 @@ function UserPhoto({ imageUrl }) {
 
   return (
     <div className="UserPhoto">
-      <img src={imageUrl} alt="Profile picture" />
+      <img src={imageUrl} alt="Profile picture" height={250} width={250} />
     </div>
   )
 }
