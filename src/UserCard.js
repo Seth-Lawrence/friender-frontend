@@ -10,10 +10,13 @@ import UserPhoto from "./UserPhoto";
  */
 
 function UserCard({ user }) {
+  console.log("UserCard, user=", user);
 
   return (
     <div className="UserCard">
-      <UserPhoto imageUrl="https://friender-images-r35.s3.amazonaws.com/image.png" />
+      { user && (<div><UserPhoto imageUrl={user.profile_image} />
+      <p>Name: {user.first_name} {user.last_name}</p>
+      <p>username: {user.username}</p></div>) }
     </div>
   )
 }

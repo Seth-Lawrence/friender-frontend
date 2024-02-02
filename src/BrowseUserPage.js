@@ -1,5 +1,6 @@
 import UserList from "./UserList";
 import { useState, useEffect } from 'react';
+const BASE_API = "http://localhost:5000";
 
 /** Renders a list of users to view (and vote on)
  *
@@ -12,7 +13,9 @@ import { useState, useEffect } from 'react';
  */
 
 function BrowseUserPage() {
-  [users, setUsers] = useState();
+  console.log("BrowseUserPage");
+  const [users, setUsers] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(function getUsersOnMount() {
@@ -21,6 +24,7 @@ function BrowseUserPage() {
       const result = await resp.json();
       const usersList = result.users;
       setUsers(usersList);
+      setIsLoading(false)
     }
     getAllUsers();
   }, []);
@@ -28,7 +32,7 @@ function BrowseUserPage() {
 
   return (
     <div className="BrowseUserPage">
-      <UserList users={users}/>
+      { isLoading ? <p>Loading...</p> : <UserList users={users}/> }
     </div>
   );
 }

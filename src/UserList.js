@@ -2,7 +2,7 @@ import UserCard from "./UserCard";
 
 /**Renders a list of UserCards
  *
- * props: users
+ * props: users [{first_name, id, last_name, profile_image, username},...]
  *
  * state: none
  *
@@ -10,9 +10,13 @@ import UserCard from "./UserCard";
  */
 
 function UserList({ users }) {
+  console.log("UserList, users=", users);
 
   return (
     <div className="UserList">
+      <ul>
+        {users.map(user => <li key={user.id}><UserCard user={user} /></li>)}
+      </ul>
       <UserCard />
     </div>
   )
