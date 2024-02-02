@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './LoginForm.css';
 
 /**Displays form for logging in and tracks changes
  *
@@ -43,7 +44,7 @@ function LoginForm({ submitAction }) {
         value={formData.password}
         onChange={handleChange}
       />
-    <button>
+    <button className='LoginForm-Btn'>
       Submit
     </button>
     </form>

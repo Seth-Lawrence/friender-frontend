@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './SignUpForm.css'
+import './SignupForm.css'
 
 /**Displays a form for signing up to the site
  *
@@ -87,7 +87,7 @@ function SignupForm({ submitAction }) {
         onChange={handleChange}
       />
 
-      <button>Submit</button>
+      <button className='SignupForm-Btn'>Submit</button>
     </form>
   )
 }
