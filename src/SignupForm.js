@@ -27,9 +27,6 @@ function SignupForm() {
 
   function handleSubmit(evt){
     evt.preventDefault();
-
-
-
   }
 
   return (
